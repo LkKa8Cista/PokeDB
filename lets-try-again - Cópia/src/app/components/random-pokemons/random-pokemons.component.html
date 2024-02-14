@@ -1,0 +1,23 @@
+<div class="random-pokemons-container">
+    <div class="logo">Do you know this Pokemons?</div>
+    <div class="tile-container">
+        <a *ngFor="let pokemon of pokemons">
+          <div class="tile">
+            <a routerLink="/details/{{pokemon.id}}">
+              <img [src]="pokemon.spritesP"><p></p>
+              {{pokemon.name | uppercase}}<p></p>
+              {{pokemon.id | formatId}}<p></p>
+              <div>
+                <ng-container *ngIf="pokemon.types.length === 1; else doubleType">
+                  <div class="type-box single" [style.backgroundColor]="pokemon.types[0] | typeColor">{{ pokemon.types[0] | uppercase }}</div>
+                </ng-container>
+                <ng-template #doubleType>
+                  <div class="type-box double" *ngFor="let type of pokemon.types" [style.backgroundColor]="type | typeColor">{{ type | uppercase}}</div>
+                </ng-template>
+              </div>
+            </a>
+          </div>
+        </a>
+    </div>
+    <div class="info">If you would like to know more about one of this Pokemons please press one of them</div>
+</div>

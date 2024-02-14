@@ -1,0 +1,35 @@
+p {
+    font-family: "Arial Black", Gadget, sans-serif;
+font-size: 32px;
+letter-spacing: 2.6px;
+word-spacing: 4.2px;
+color: #f44336;
+font-weight: 700;
+text-decoration: none;
+font-style: normal;
+font-variant: small-caps;
+text-transform: uppercase;
+text-align: center;
+}
+
+.back-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #f44336;
+    color: #fff;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+.image {
+    width: 100hv;
+    display: flex;
+    justify-content: center;
+}

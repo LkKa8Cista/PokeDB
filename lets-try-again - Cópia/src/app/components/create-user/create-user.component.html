@@ -1,0 +1,15 @@
+<button class="back-button" (click)="goToLogin()">Back to Login</button>
+
+<div class="container">
+    <h2>Create New User</h2>
+    <div>
+      <label>Username:</label>
+      <input type="text" [(ngModel)]="username" minlength="3" required>
+    </div>
+    <div>
+      <label>Password:</label>
+      <input type="password" [(ngModel)]="password" minlength="5" required>
+    </div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <button (click)="createUser()" >Create User</button>
+</div>

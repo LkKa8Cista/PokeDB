@@ -1,0 +1,59 @@
+<!-- <div class="all-pokemons-container">
+    <div class="logo">
+      <img class="pokeball1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2052px-Pok%C3%A9_Ball_icon.svg.png" alt="Pokemon Logo">
+      Here are all the Pokemons so far
+      <img class="pokeball2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2052px-Pok%C3%A9_Ball_icon.svg.png" alt="Pokemon Logo">
+    </div>
+    <div class="tile-container">
+        <a *ngFor="let pokemon of pokemons">
+          <div class="tile">
+            <a routerLink="/details/{{pokemon.id}}">
+              <img [src]="pokemon.spritesP"><p></p>
+              {{pokemon.name | uppercase}}<p></p>
+              {{pokemon.id | formatId}}<p></p>
+              <div>
+                <ng-container *ngIf="pokemon.types.length === 1; else doubleType">
+                  <div class="type-box single" [style.backgroundColor]="pokemon.types[0] | typeColor">{{ pokemon.types[0] | uppercase }}</div>
+                </ng-container>
+                <ng-template #doubleType>
+                  <div class="type-box double" *ngFor="let type of pokemon.types" [style.backgroundColor]="type | typeColor">{{ type | uppercase}}</div>
+                </ng-template>
+              </div>
+            </a>
+          </div>
+        </a>
+    </div>
+</div> -->
+<app-header></app-header>
+<div class="all-pokemons-container">
+  <div class="logo">
+    <img class="pokeball1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2052px-Pok%C3%A9_Ball_icon.svg.png" alt="Pokemon Logo">
+    Here are all the Pokemons so far
+    <img class="pokeball2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2052px-Pok%C3%A9_Ball_icon.svg.png" alt="Pokemon Logo">
+  </div>
+  <div class="tile-container">
+    <a *ngFor="let pokemon of getPageItems()">
+      <div class="tile">
+        <a routerLink="/details/{{pokemon.id}}">
+          <img [src]="pokemon.spritesP"><p></p>
+          {{pokemon.name | uppercase}}<p></p>
+          {{pokemon.id | formatId}}<p></p>
+          <div>
+            <ng-container *ngIf="pokemon.types.length === 1; else doubleType">
+              <div class="type-box single" [style.backgroundColor]="pokemon.types[0] | typeColor">{{ pokemon.types[0] | uppercase }}</div>
+            </ng-container>
+            <ng-template #doubleType>
+              <div class="type-box double" *ngFor="let type of pokemon.types" [style.backgroundColor]="type | typeColor">{{ type | uppercase}}</div>
+            </ng-template>
+          </div>
+        </a>
+      </div>
+    </a>
+  </div>
+  <div class="pagination">
+    <button (click)="prevPage()">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="nextPage()">Next</button>
+  </div>
+</div>
+

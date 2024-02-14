@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div *ngIf="pokemon" class="info">
+    <div class="h2-container">
+        <h2>{{pokemon.name | uppercase}} Details</h2>
+    </div>
+    <div class="under">
+        <div class="filler1"></div>
+        <div class="text-container">
+            <div class="stats-names">
+                <p><strong>Name:</strong> {{pokemon.name | uppercase}}</p>
+                <p><strong>ID:</strong> {{pokemon.id}}</p>
+                <p><strong>Weight:</strong> {{pokemon.weight}}</p>
+                <p><strong>Height:</strong> {{pokemon.height}}</p>
+                <div>
+                    <ng-container *ngIf="pokemon.types.length === 1; else doubleType">
+                      <div class="type-box single" [style.backgroundColor]="pokemon.types[0] | typeColor">{{ pokemon.types[0] | uppercase }}</div>
+                    </ng-container>
+                    <ng-template #doubleType>
+                      <div class="type-box double" *ngFor="let type of pokemon.types" [style.backgroundColor]="type | typeColor">{{ type | uppercase}}</div>
+                    </ng-template>
+                </div>
+                <p></p>
+                <p><strong>Cry: </strong><button (click)="playCry(pokemon.cry)">Play Cry</button></p>
+            </div>
+        </div>
+
+        <div *ngIf="pokemon" class="info2">
+            <div class="image-container" [appResizeImage]="pokemon.height" style="width: auto">
+                <div class="image">
+                    <img [src]="pokemon.spritesP" [appResizeImage]="pokemon.height" style="width: auto" >
+                </div>
+            </div>   
+        </div>
+        <div class="filler2"></div>
+    </div>
+</div>
+
+
+
